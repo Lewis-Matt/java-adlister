@@ -11,6 +11,7 @@ import java.io.IOException;
 public class PageViewServlet extends HttpServlet {
     private Integer viewCount = 0;
 
+    @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse res) throws IOException {
         // .getParameter(Sting) the string can be anything, usually 'q' if it is a search query.
         String query =req.getParameter("count");
