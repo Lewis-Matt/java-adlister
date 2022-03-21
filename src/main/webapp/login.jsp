@@ -20,16 +20,25 @@ request (javax.servlet.http.HttpServletRequest): To get the values of attributes
     request.setAttribute("getUsername", request.getParameter("username"));
     request.setAttribute("getPassword", request.getParameter("password"));
 %>
+<%--The c:choose tag is analogous to an if-else block
+Inside of the c:when tags, the test attribute should be a boolean expression that determines whether the content inside of the tag should be rendered.--%>
 <c:choose>
     <c:when test="${getUsername.equals('admin') && getPassword.equals('password')}">
         <% response.sendRedirect("/profile.jsp"); %>
     </c:when>
 </c:choose>
+
 <html>
-<head>
-    <title>Login</title>
-</head>
+<!-- Dynamic JSP Head -->
+<jsp:include page="partials/head.jsp">
+    <jsp:param name="title" value="Login Page"/>
+</jsp:include>
+<html>
+
 <body>
+<!-- Static JSP Nav -->
+<%@include file="partials/navbar.jsp" %>
+
 <h1>Login</h1>
 <form method="post" action="">
     <label for="username">Username</label>
@@ -40,3 +49,4 @@ request (javax.servlet.http.HttpServletRequest): To get the values of attributes
 </form>
 </body>
 </html>
+<%-- !!!!!! endpoint must be /login.jsp, not just /login--%>

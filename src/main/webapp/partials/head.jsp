@@ -1,16 +1,8 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: misterlewis
-  Date: 3/19/22
-  Time: 12:49 PM
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
+<%--Could include all of the scripts (bootstrap, CSS, JS, etc.) to be loaded on each page--%>
 <head>
-    <title>Title</title>
+    <%--Set a page title on each page--%>
+    <title><%=request.getParameter("title")%></title>
+    <!--CSS link-->
+    <link rel="stylesheet" type="text/css" href=""/>
 </head>
-<body>
-
-</body>
-</html>
