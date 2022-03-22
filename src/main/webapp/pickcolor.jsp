@@ -1,16 +1,14 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: misterlewis
-  Date: 3/22/22
-  Time: 11:16 AM
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>Pick Color</title>
 </head>
 <body>
-
+<form method="post">
+    <label for="color">Enter a color: </label>
+<%-- The color is attached to the "name" field--%>
+    <input type="text" id="color" name="color" placeholder="Red">
+    <button type="submit">Submit</button>
+</form>
 </body>
 </html>
