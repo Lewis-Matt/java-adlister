@@ -10,7 +10,7 @@ public class PickColorServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.getRequestDispatcher("/pickcolor.jsp").forward(request, response);
     }
-    // The user enters their color, and when they 'sbumit' we are redirected to viewcolor wtih the value of the name="color" input as the parameter sent with the post request.
+    // The user enters their color, and when they 'subumit' we are redirected to viewcolor wtih the value of the name="color" input as the parameter sent with the post request.
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String color = request.getParameter("color");
