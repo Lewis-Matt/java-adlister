@@ -4,6 +4,7 @@ import java.io.Serializable;
 public class Quote implements Serializable {
     private int id;
     private int authorId;
+    private String author;
     private String content;
 
     public Quote() {
@@ -31,5 +32,13 @@ public class Quote implements Serializable {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
     }
 }
