@@ -1,3 +1,16 @@
+# My Notes
+- See the following branches for detailed notes on each topic:
+  1. sessions-and-cookies-exercise
+  2. mvc-exercise
+  3. javabeans
+  4. servlets-with-jsps
+  5. jsp-and-jstl-exercise
+  6. servlets-exercise
+
+
+- Lesson notes are in database-exercises repository
+
+<hr>
 # Adlister Project
 
 This is the project that we will be going through in the latter part of the Java
