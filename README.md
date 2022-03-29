@@ -11,6 +11,7 @@
 - Lesson notes are in database-exercises repository
 
 <hr>
+
 # Adlister Project
 
 This is the project that we will be going through in the latter part of the Java
