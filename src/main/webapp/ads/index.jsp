@@ -7,7 +7,7 @@
 <body>
 <h1>List of all ads</h1>
 <%--Loop through the ads defined in the controller (ShowAdsServlet)--%>
-<c:forEach var="ad" items="${ads}">
+<c:forEach var="ads" items="${ads}">
     <div>
         <h2>${ads.title}</h2>
         <p>${ads.description}</p></div>

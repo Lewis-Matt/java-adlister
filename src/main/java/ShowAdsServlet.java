@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet("/ads")
+@WebServlet(name = "ShowAdsServlet", urlPatterns = "/ads")
 public class ShowAdsServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -16,6 +16,6 @@ public class ShowAdsServlet extends HttpServlet {
         List<Ad> ads = adsDao.all();
         // Pass data to JSP -'ads' is what the EL syntax will reference in the JSP
         request.setAttribute("ads", ads);
-        request.getRequestDispatcher("/index.jsp").forward(request, response);
+        request.getRequestDispatcher("/ads/index.jsp").forward(request, response);
     }
 }
