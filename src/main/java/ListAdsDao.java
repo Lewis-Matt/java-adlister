@@ -1,6 +1,8 @@
 import java.util.ArrayList;
 import java.util.List;
 
+// The DAO implementation
+
 public class ListAdsDao implements Ads {
     private List<Ad> ads;
 
@@ -10,6 +12,8 @@ public class ListAdsDao implements Ads {
         }
         return ads;
     }
+
+    // Fake 'database' - using a List to represent the database
 
     private List<Ad> generateAds() {
         List<Ad> ads = new ArrayList<>();

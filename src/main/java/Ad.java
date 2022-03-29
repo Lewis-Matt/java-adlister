@@ -4,6 +4,8 @@ public class Ad {
     private String title;
     private String description;
 
+    // The Model - note that there should be a no-arg constructor as well
+
     public Ad(long id, long userId, String title, String description) {
         this.id = id;
         this.userId = userId;
