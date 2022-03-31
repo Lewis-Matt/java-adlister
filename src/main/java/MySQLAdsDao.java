@@ -7,7 +7,7 @@ import java.util.List;
 // This class should have a private instance property named connection of type Connection that is initialized in the constructor. Define your constructor so that it accepts an instance of your Config class so that it can obtain the database credentials.
 
 public class MySQLAdsDao implements Ads {
-    private Connection connection;
+    private Connection connection = null;
 
     // The connection object will be created just once, in this class' constructor, and the individual methods that query the database should use the connection object to create statements.
 
@@ -86,3 +86,6 @@ public class MySQLAdsDao implements Ads {
         return null;
     } // insert()
 } // class
+
+// In order to test the above functionality: manually insert a record into the users table and note the id of the newly created record. In your controller, when an ad is being created, hardcode this id into the ad. (1)
+// INSERT INTO users(username, email, password) VALUES('Matt', 'matt@mail.com', 'codeup');
