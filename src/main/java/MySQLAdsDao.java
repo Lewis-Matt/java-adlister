@@ -11,15 +11,19 @@ public class MySQLAdsDao implements Ads {
 
     // The connection object will be created just once, in this class' constructor, and the individual methods that query the database should use the connection object to create statements.
 
-    // Constructor (try/catch or throws?)
-    public MySQLAdsDao() throws SQLException {
-        Config config = new Config();
-        DriverManager.registerDriver(new Driver());
-        connection = DriverManager.getConnection(
-                config.getUrl(),
-                config.getUser(),
-                config.getPassword()
-        );
+    // Constructor (I originally just used 'throws', but it needs to handle the exception, so switched to try/catch
+    // When you create an instance of MySQLAdsDao, create an instance of your Config class to pass to the MySQLAdsDao constructor
+    public MySQLAdsDao(Config config) {
+        try {
+            DriverManager.registerDriver(new Driver());
+            connection = DriverManager.getConnection(
+                    config.getUrl(),
+                    config.getUser(),
+                    config.getPassword()
+            );
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     // Your methods should retrieve ads from the database and insert new ads into the database
