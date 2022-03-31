@@ -12,9 +12,10 @@ CREATE TABLE IF NOT EXISTS users
 CREATE TABLE IF NOT EXISTS ads
 (
     id          INT UNSIGNED NOT NULL AUTO_INCREMENT,
-    user_id     INT UNSIGNED DEFAULT NULL,
-    title       VARCHAR(100),
-    description VARCHAR(250),
+    user_id     INT UNSIGNED NOT NULL,
+    title       VARCHAR(100) NOT NULL,
+    description TEXT,
     PRIMARY KEY (id),
     FOREIGN KEY (user_id) REFERENCES users (id)
 );
+# cd into resources: mysql> source adlister_migration.sql;
