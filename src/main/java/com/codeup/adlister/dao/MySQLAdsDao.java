@@ -42,10 +42,24 @@ public class MySQLAdsDao implements Ads {
     @Override
     public Long insert(Ad ad) {
         try {
-            Statement stmt = connection.createStatement();
-            stmt.executeUpdate(createInsertQuery(ad), Statement.RETURN_GENERATED_KEYS);
+            // Original statement
+            // Statement stmt = connection.createStatement();
+            // stmt.executeUpdate(createInsertQuery(ad), Statement.RETURN_GENERATED_KEYS);
+            // Using prepared statement
+            String sql = "INSERT INTO ads (user_id, title, description) VALUES (?,?,?)";
+            // When used with INSERT, add Statement.RETURN_GENERATED_KEYS to obtain the db-generated IDs as well
+            PreparedStatement stmt = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+            // Set the 3 placeholders (?) to the following passed-in values:
+            stmt.setLong(1, ad.getUserId());
+            stmt.setString(2, ad.getTitle());
+            stmt.setString(3, ad.getDescription());
+            // Execute an INSERT/UPDATE query (note: use .executeQuery for SELECT)
+            stmt.executeUpdate();
+            // Get the ids
             ResultSet rs = stmt.getGeneratedKeys();
+            // Move through each id (row)
             rs.next();
+            // Retrieve the generated id, pass a 1 to indicate the first result in the result set
             return rs.getLong(1);
         } catch (SQLException e) {
             throw new RuntimeException("Error creating a new ad.", e);
