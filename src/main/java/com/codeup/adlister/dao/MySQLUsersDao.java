@@ -23,7 +23,6 @@ public class MySQLUsersDao implements Users {
         }
     }
 
-
     @Override
     public User findByUsername(String username) {
         String query = "SELECT * FROM users WHERE username = ? LIMIT 1";
@@ -44,7 +43,7 @@ public class MySQLUsersDao implements Users {
             stmt.setString(1, user.getUsername());
             stmt.setString(2, user.getEmail());
             // TODO: Make sure passwords are being hashed before they enter the database
-            // Original: stmt.setString(3, user.getPassword());
+            // original: stmt.setString(3, user.getPassword());
             stmt.setString(3, Password.hash(user.getPassword()));
             stmt.executeUpdate();
             ResultSet rs = stmt.getGeneratedKeys();

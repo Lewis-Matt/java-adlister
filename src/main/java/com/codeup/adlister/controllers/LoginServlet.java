@@ -31,8 +31,9 @@ public class LoginServlet extends HttpServlet {
             return;
         }
         // TODO: Change your login logic to check against users' hashed passwords
-        // Original: boolean validAttempt = password.equals(user.getPassword());
-        boolean validAttempt = Password.check(password, user.getPassword());
+        boolean validAttempt = password.equals(user.getPassword()); // original
+        // This throws 500 error "Invalid Salt Version"
+//        boolean validAttempt = Password.check(password, user.getPassword());
 
         if (validAttempt) {
             request.getSession().setAttribute("user", user);
